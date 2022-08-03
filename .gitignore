@@ -14,13 +14,13 @@
 
 cache-directory
 
-# This is where RStudio gathers part of the book. Files are transfered to 
+# This is where RStudio gathers part of the book. Files are transfered to
 # output_dir once the build is complete.
 
 _bookdown_files
 
 
-# Because _bookdown.yml has book_filename: "book_temp", there is a lot of 
+# Because _bookdown.yml has book_filename: "book_temp", there is a lot of
 # garbage with this prefix, both individual files and directories. None of
 # it should be saved.
 
@@ -31,7 +31,7 @@ book_temp*
 junk/*
 
 # Only the book-builder needs to deal with this file. It gets replaced
-# everytime you knit a chapter, so it should just be ignored. 
+# everytime you knit a chapter, so it should just be ignored.
 
 bib/packages.bib
 
@@ -45,3 +45,5 @@ bib/packages.bib
 
 
 
+
+/.quarto/

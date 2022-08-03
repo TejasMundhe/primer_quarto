@@ -1,25 +1,3 @@
----
-# CAUTION. These are not regulor output options that can be placed
-# in either index.Rmd or _output.yml. I am not sure yet why, but the
-# book does not build as it should if the below entries are moved to
-# _output.yml. You can still add other entries here, but do not delete
-# or edit anything from "title" to "grapics".
-
-title: "Preceptor's Primer for Bayesian Data Science"
-author: "David Kane"
-site: bookdown::bookdown_site
-documentclass: book
-bibliography: [bib/references.bib, bib/packages.bib]
-biblio-style: apalike
-link-citations: yes
-nocite: '@*'
-colorlinks: yes
-lot: false
-lof: false
-always_allow_html: yes
-graphics: yes
----
-
 # Welcome {.unnumbered}
 
 <!-- nocite: '@*' is what ensures that all the references appear. Not sure why! -->
