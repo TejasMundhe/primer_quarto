@@ -50,6 +50,7 @@ Wisdom begins with considering the questions we desire to answer and the data se
 ```{r, echo = FALSE, message = FALSE}
 library(gt)
 library(tidyverse)
+library(patchwork)
 ```
 
 

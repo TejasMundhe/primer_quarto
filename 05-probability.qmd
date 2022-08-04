@@ -73,6 +73,7 @@ The only package we need in this chapter is **tidyverse**.
 
 ```{r, message = FALSE}
 library(tidyverse)
+library(patchwork)
 ```
 
 To understand probability more fully, we first need to understand distributions.
@@ -90,6 +91,7 @@ library(rgl)
 library(tidyverse)
 library(magick)
 library(primer.data)
+library(gt)
 ```
 
 

@@ -53,6 +53,7 @@ Because there is no missing data in an ideal Preceptor Table, we would also know
 
 ```{r, echo = FALSE, message = FALSE}
 library(tidyverse)
+library(gt)
 ```
 
 

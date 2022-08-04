@@ -702,216 +702,216 @@ These are the functions that we're already familiar with using, and they work ju
 
 However, there are cases where you will have to use SQL code to accomplish certain tasks.
 
-#### Using SQL code
+<!-- #### Using SQL code -->
 
-First off, let's try to understand what SQLite and SQL really is.
+<!-- First off, let's try to understand what SQLite and SQL really is. -->
 
-SQL, or *S*tructured *Q*uery *L*anguage, is a coding language that works to build the relational databases that we've been using so far. SQLite is a special type of database that you can download onto your computer that uses SQL as its basic structure and basic language. Essentially, SQLite uses SQL code to do the things that it does.
+<!-- SQL, or *S*tructured *Q*uery *L*anguage, is a coding language that works to build the relational databases that we've been using so far. SQLite is a special type of database that you can download onto your computer that uses SQL as its basic structure and basic language. Essentially, SQLite uses SQL code to do the things that it does. -->
 
-While you shouldn't need to write SQL code in this primer, it's very common to read from an SQL database in order to access data so that you can graph it.
+<!-- While you shouldn't need to write SQL code in this primer, it's very common to read from an SQL database in order to access data so that you can graph it. -->
 
-SQL runs through something known as a *query*, a line of code that pulls in information from the database. This is effectively asking the database for a specific set of data. This is what's known as a `SELECT` command, which "selects" data from the database and brings it into your computer for your use.
+<!-- SQL runs through something known as a *query*, a line of code that pulls in information from the database. This is effectively asking the database for a specific set of data. This is what's known as a `SELECT` command, which "selects" data from the database and brings it into your computer for your use. -->
 
-```{sql, connection = con}
--- This code is written in SQL syntax, so it won't work if you just put it into R. 
--- We'll be going over how to write SQL in R later in this section.
+<!-- ```{sql, connection = con} -->
+<!-- -- This code is written in SQL syntax, so it won't work if you just put it into R.  -->
+<!-- -- We'll be going over how to write SQL in R later in this section. -->
 
-SELECT AlbumId,
-       Title,
-       ArtistId
-FROM albums;
-```
+<!-- SELECT AlbumId, -->
+<!--        Title, -->
+<!--        ArtistId -->
+<!-- FROM albums; -->
+<!-- ``` -->
 
-You can then modify these queries to do operations like joins.
+<!-- You can then modify these queries to do operations like joins. -->
 
-```{sql, connection = con}
--- This does the same thing as the inner join from Chapter 2 Wrangling
--- Here we're joining the albums and the artists table by the ArtistId column
+<!-- ```{sql, connection = con} -->
+<!-- -- This does the same thing as the inner join from Chapter 2 Wrangling -->
+<!-- -- Here we're joining the albums and the artists table by the ArtistId column -->
 
-SELECT artistid,
-       NAME,
-       title
-FROM
-  (SELECT title,
-          albums.artistid AS "ArtistId",
-          "name"
-   FROM albums
-   INNER JOIN artists ON albums.artistid = artists.artistid);
-```
+<!-- SELECT artistid, -->
+<!--        NAME, -->
+<!--        title -->
+<!-- FROM -->
+<!--   (SELECT title, -->
+<!--           albums.artistid AS "ArtistId", -->
+<!--           "name" -->
+<!--    FROM albums -->
+<!--    INNER JOIN artists ON albums.artistid = artists.artistid); -->
+<!-- ``` -->
 
->If you're interested in what SQL statements mean and how to write SQL code, visit this [tutorial](https://www.sqlitetutorial.net/). If you're interested in how to create a
-database through SQL, visit [here](https://www.datacamp.com/community/tutorials/sqlite-in-r).
+<!-- >If you're interested in what SQL statements mean and how to write SQL code, visit this [tutorial](https://www.sqlitetutorial.net/). If you're interested in how to create a -->
+<!-- database through SQL, visit [here](https://www.datacamp.com/community/tutorials/sqlite-in-r). -->
 
-In fact, the `dbplyr` commands actually use SQL code to create their effect.
-You can run `show_query()` to see the SQL code, or the *query* that `dbplyr` produces.
+<!-- In fact, the `dbplyr` commands actually use SQL code to create their effect. -->
+<!-- You can run `show_query()` to see the SQL code, or the *query* that `dbplyr` produces. -->
 
-```{r}
-show_query(band_albums)
-```
+<!-- ```{r} -->
+<!-- show_query(band_albums) -->
+<!-- ``` -->
 
-However, you can't do everything from SQL through the `dbplyr` package. For example, you can't use the `slice()` command.
+<!-- However, you can't do everything from SQL through the `dbplyr` package. For example, you can't use the `slice()` command. -->
 
-```
-slice(band_albums, 1:10)
-```
-```
-## Error: slice() is not supported on database backends
-```
+<!-- ``` -->
+<!-- slice(band_albums, 1:10) -->
+<!-- ``` -->
+<!-- ``` -->
+<!-- ## Error: slice() is not supported on database backends -->
+<!-- ``` -->
 
-This is possible in an SQL database. There are a couple of ways to run SQL code in R, but the easiest way is by using the `dbGetQuery()` function from the **DBI** library.
+<!-- This is possible in an SQL database. There are a couple of ways to run SQL code in R, but the easiest way is by using the `dbGetQuery()` function from the **DBI** library. -->
 
-```{r}
-# This code is just copy-pasted and reformatted from the earlier dbplyr code so
-# you can best understand it.
+<!-- ```{r} -->
+<!-- # This code is just copy-pasted and reformatted from the earlier dbplyr code so -->
+<!-- # you can best understand it. -->
 
-dbGetQuery(con, "
-SELECT `artist_id`,
-       `artist_name`,
-       `num_albums`
-FROM
-  (SELECT `artistid`,
-          `name`,
-          `num_albums`,
-          `artist_name`,
-          `artistid` AS `artist_id`
-   FROM
-     (SELECT `artistid`,
-             `name`,
-             `num_albums`,
-             `name` AS `artist_name`
-      FROM
-        (SELECT `artistid`,
-                `name`,
-                Count(*) AS `num_albums`
-         FROM
-           (SELECT `albumid`,
-                   `artistid`,
-                   `title`,
-                   `name`
-            FROM
-              (SELECT `albumid`,
-                      `title`,
-                      `LHS`.`artistid` AS `ArtistId`,
-                      `name`
-               FROM `albums` AS `LHS`
-               INNER JOIN `artists` AS `RHS` ON (`LHS`.`artistid` = `RHS`.`artistid`))) GROUP  BY `artistid`)))
-WHERE (`num_albums` > 3.0)
-  ORDER  BY `num_albums` DESC
-")
-```
+<!-- dbGetQuery(con, " -->
+<!-- SELECT `artist_id`, -->
+<!--        `artist_name`, -->
+<!--        `num_albums` -->
+<!-- FROM -->
+<!--   (SELECT `artistid`, -->
+<!--           `name`, -->
+<!--           `num_albums`, -->
+<!--           `artist_name`, -->
+<!--           `artistid` AS `artist_id` -->
+<!--    FROM -->
+<!--      (SELECT `artistid`, -->
+<!--              `name`, -->
+<!--              `num_albums`, -->
+<!--              `name` AS `artist_name` -->
+<!--       FROM -->
+<!--         (SELECT `artistid`, -->
+<!--                 `name`, -->
+<!--                 Count(*) AS `num_albums` -->
+<!--          FROM -->
+<!--            (SELECT `albumid`, -->
+<!--                    `artistid`, -->
+<!--                    `title`, -->
+<!--                    `name` -->
+<!--             FROM -->
+<!--               (SELECT `albumid`, -->
+<!--                       `title`, -->
+<!--                       `LHS`.`artistid` AS `ArtistId`, -->
+<!--                       `name` -->
+<!--                FROM `albums` AS `LHS` -->
+<!--                INNER JOIN `artists` AS `RHS` ON (`LHS`.`artistid` = `RHS`.`artistid`))) GROUP  BY `artistid`))) -->
+<!-- WHERE (`num_albums` > 3.0) -->
+<!--   ORDER  BY `num_albums` DESC -->
+<!-- ") -->
+<!-- ``` -->
 
-This method allows you to only use R code within your project, making it easier.
+<!-- This method allows you to only use R code within your project, making it easier. -->
 
-You can also use SQL code directly in your project by changing the header in an Rmarkdown file. When you code in an Rmarkdown file, you create chunks that look like this:
-```
-## ```{r}
-##
-## ```
-```
+<!-- You can also use SQL code directly in your project by changing the header in an Rmarkdown file. When you code in an Rmarkdown file, you create chunks that look like this: -->
+<!-- ``` -->
+<!-- ## ```{r} -->
+<!-- ## -->
+<!-- ## ``` -->
+<!-- ``` -->
 
-You can code in SQL by changing the chunk to look like this:
+<!-- You can code in SQL by changing the chunk to look like this: -->
 
-```
-## ```{sql, connection = con, output.var = "your_variable_name"}
-## 
-## ```
-```
+<!-- ``` -->
+<!-- ## ```{sql, connection = con, output.var = "your_variable_name"} -->
+<!-- ##  -->
+<!-- ## ``` -->
+<!-- ``` -->
 
-This allows you to write SQL code in genuine SQL syntax and save the output to a variable.
-```
-## ```{sql, connection = con, output.var = "your_variable_name"}
-## SELECT * FROM albums
-## ```
-```
+<!-- This allows you to write SQL code in genuine SQL syntax and save the output to a variable. -->
+<!-- ``` -->
+<!-- ## ```{sql, connection = con, output.var = "your_variable_name"} -->
+<!-- ## SELECT * FROM albums -->
+<!-- ## ``` -->
+<!-- ``` -->
 
-```{sql, connection = con, output.var = "your_variable_name", echo = FALSE}
--- SQL uses a semicolon to show the end of the statements
--- However, you don't need to include that for the dbGetQuery() statement
+<!-- ```{sql, connection = con, output.var = "your_variable_name", echo = FALSE} -->
+<!-- -- SQL uses a semicolon to show the end of the statements -->
+<!-- -- However, you don't need to include that for the dbGetQuery() statement -->
 
-SELECT * 
-FROM albums;
-```
+<!-- SELECT *  -->
+<!-- FROM albums; -->
+<!-- ``` -->
 
-You can then use that variable in your R code.
-```{r}
-head(your_variable_name)
-```
+<!-- You can then use that variable in your R code. -->
+<!-- ```{r} -->
+<!-- head(your_variable_name) -->
+<!-- ``` -->
 
-Coding in SQL allows you to do the things that the **dbplyr** package doesn't, such as only using certain rows. If you add `LIMIT 10;` at the end of the query (the first `SELECT` statement), you can limit the query to only the first 10 rows.
+<!-- Coding in SQL allows you to do the things that the **dbplyr** package doesn't, such as only using certain rows. If you add `LIMIT 10;` at the end of the query (the first `SELECT` statement), you can limit the query to only the first 10 rows. -->
 
-```{sql, connection = con, output.var = "band_albums_sql"}
--- We're writing this code using the sql code chunk method. 
--- This is because it allows you to see what's highlighted and what's not.
--- SQL code is also inconvenient because you can't just add a new line,
--- Instead, you need to treat all of these lines of code as a single statement
--- Then add in the command where you think that it would fit.
-SELECT `artist_id`,
-       `artist_name`,
-       `num_albums`
-FROM
-  (SELECT `artistid`,
-          `name`,
-          `num_albums`,
-          `artist_name`,
-          `artistid` AS `artist_id`
-   FROM
-     (SELECT `artistid`,
-             `name`,
-             `num_albums`,
-             `name` AS `artist_name`
-      FROM
-        (SELECT `artistid`,
-                `name`,
-                Count(*) AS `num_albums`
-         FROM
-           (SELECT `albumid`,
-                   `artistid`,
-                   `title`,
-                   `name`
-            FROM
-              (SELECT `albumid`,
-                      `title`,
-                      `LHS`.`artistid` AS `ArtistId`,
-                      `name`
-               FROM `albums` AS `LHS`
-               INNER JOIN `artists` AS `RHS` ON (`LHS`.`artistid` = `RHS`.`artistid`))) GROUP  BY `artistid`)))
-WHERE (`num_albums` > 3.0)
-  ORDER  BY `num_albums` DESC
-LIMIT 10;
-```
+<!-- ```{sql, connection = con, output.var = "band_albums_sql"} -->
+<!-- -- We're writing this code using the sql code chunk method.  -->
+<!-- -- This is because it allows you to see what's highlighted and what's not. -->
+<!-- -- SQL code is also inconvenient because you can't just add a new line, -->
+<!-- -- Instead, you need to treat all of these lines of code as a single statement -->
+<!-- -- Then add in the command where you think that it would fit. -->
+<!-- SELECT `artist_id`, -->
+<!--        `artist_name`, -->
+<!--        `num_albums` -->
+<!-- FROM -->
+<!--   (SELECT `artistid`, -->
+<!--           `name`, -->
+<!--           `num_albums`, -->
+<!--           `artist_name`, -->
+<!--           `artistid` AS `artist_id` -->
+<!--    FROM -->
+<!--      (SELECT `artistid`, -->
+<!--              `name`, -->
+<!--              `num_albums`, -->
+<!--              `name` AS `artist_name` -->
+<!--       FROM -->
+<!--         (SELECT `artistid`, -->
+<!--                 `name`, -->
+<!--                 Count(*) AS `num_albums` -->
+<!--          FROM -->
+<!--            (SELECT `albumid`, -->
+<!--                    `artistid`, -->
+<!--                    `title`, -->
+<!--                    `name` -->
+<!--             FROM -->
+<!--               (SELECT `albumid`, -->
+<!--                       `title`, -->
+<!--                       `LHS`.`artistid` AS `ArtistId`, -->
+<!--                       `name` -->
+<!--                FROM `albums` AS `LHS` -->
+<!--                INNER JOIN `artists` AS `RHS` ON (`LHS`.`artistid` = `RHS`.`artistid`))) GROUP  BY `artistid`))) -->
+<!-- WHERE (`num_albums` > 3.0) -->
+<!--   ORDER  BY `num_albums` DESC -->
+<!-- LIMIT 10; -->
+<!-- ``` -->
 
-```{r}
-# You can't see this, but output.var = "band_albums_sql" in the chunk above
-# this. So we're outputting our data into band_albums_sql
-band_albums_sql
-```
+<!-- ```{r} -->
+<!-- # You can't see this, but output.var = "band_albums_sql" in the chunk above -->
+<!-- # this. So we're outputting our data into band_albums_sql -->
+<!-- band_albums_sql -->
+<!-- ``` -->
 
-SQL is more versatile than `dbplyr`, but it's also a lot more confusing because it's not as straightforward. This creates one golden rule:
+<!-- SQL is more versatile than `dbplyr`, but it's also a lot more confusing because it's not as straightforward. This creates one golden rule: -->
 
-> *Use dbplyr functions for data analysis and SQL code for accessing data*
+<!-- > *Use dbplyr functions for data analysis and SQL code for accessing data* -->
 
-This is because SQL code is weird and hard to understand, but it allows you to easily pull in data. SQL is a coding language *designed* for you to query or ask databases for data. Meanwhile, `dbplyr` is meant for analyzing that data and modifying it.
+<!-- This is because SQL code is weird and hard to understand, but it allows you to easily pull in data. SQL is a coding language *designed* for you to query or ask databases for data. Meanwhile, `dbplyr` is meant for analyzing that data and modifying it. -->
 
-```{r, include = FALSE}
-dbDisconnect(con)
-file.remove("chinook.db")
-```
+<!-- ```{r, include = FALSE} -->
+<!-- dbDisconnect(con) -->
+<!-- file.remove("chinook.db") -->
+<!-- ``` -->
 
-Now, we worked with an SQLite database within this tutorial due to its simplicity. However, there are other databases that can be accessed in different ways. For example, a PostgresSQL server is located on the internet and allows you to pull data from the internet instead of downloading it into your computer. You can learn about some of the types of SQL databases and their differences [here](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems).
+<!-- Now, we worked with an SQLite database within this tutorial due to its simplicity. However, there are other databases that can be accessed in different ways. For example, a PostgresSQL server is located on the internet and allows you to pull data from the internet instead of downloading it into your computer. You can learn about some of the types of SQL databases and their differences [here](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems). -->
 
-*But why should we bother with databases at all?*
+<!-- *But why should we bother with databases at all?* -->
 
-Opening a database stored in a `.db` file involved a lot more effort than just opening a `.csv`, `.tsv`, or any of the other plain text or Excel formats. It was a bit of a pain to use a database in that setting since we had to use `dbplyr` to translate `tidyverse`-like commands (`filter`, `select`, `head`, etc.) into SQL commands that the database understands. Not all `tidyverse` commands can currently be translated with SQLite databases, like we showed with `slice()`. So you might be wondering, why should we use databases at all? 
+<!-- Opening a database stored in a `.db` file involved a lot more effort than just opening a `.csv`, `.tsv`, or any of the other plain text or Excel formats. It was a bit of a pain to use a database in that setting since we had to use `dbplyr` to translate `tidyverse`-like commands (`filter`, `select`, `head`, etc.) into SQL commands that the database understands. Not all `tidyverse` commands can currently be translated with SQLite databases, like we showed with `slice()`. So you might be wondering, why should we use databases at all?  -->
 
-Databases are beneficial in a large-scale setting:
+<!-- Databases are beneficial in a large-scale setting: -->
 
-- they enable storing large data sets across multiple computers with automatic redundancy and backups
-- they allow multiple users to access them simultaneously and remotely without conflicts and errors
-- they provide mechanisms for ensuring data integrity and validating input
-- they provide security to keep data safe
-For example, [there are billions of Google searches conducted daily](https://www.internetlivestats.com/google-search-statistics/). 
+<!-- - they enable storing large data sets across multiple computers with automatic redundancy and backups -->
+<!-- - they allow multiple users to access them simultaneously and remotely without conflicts and errors -->
+<!-- - they provide mechanisms for ensuring data integrity and validating input -->
+<!-- - they provide security to keep data safe -->
+<!-- For example, [there are billions of Google searches conducted daily](https://www.internetlivestats.com/google-search-statistics/).  -->
 
-This makes databases extremely useful for a business where they'll have employees doing thousands or millions of operations daily. This makes knowing what SQL databases are extremely vital from both a data science and a general usage perspective.
+<!-- This makes databases extremely useful for a business where they'll have employees doing thousands or millions of operations daily. This makes knowing what SQL databases are extremely vital from both a data science and a general usage perspective. -->
 
 ## Webscraping
 

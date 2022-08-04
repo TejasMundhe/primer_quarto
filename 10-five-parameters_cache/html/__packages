@@ -1,0 +1,16 @@
+primer.data
+gt
+gtsummary
+skimr
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+Rcpp
+rstanarm
+broom.mixed
