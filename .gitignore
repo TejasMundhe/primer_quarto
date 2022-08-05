@@ -40,10 +40,4 @@ bib/packages.bib
 !docs/*
 
 /.quarto/
-
-
-
-
-
-
-/.quarto/
+/_site/
