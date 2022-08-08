@@ -39,5 +39,9 @@ bib/packages.bib
 
 !docs/*
 
+# Don't neet to check below directory's into version control. (Updated for quarto)
 /.quarto/
 /_book/
+
+# Trying to put this directory in my gitignore so that my staging area isn't flooded every time I preview the website
+docs/book_temp_files/*

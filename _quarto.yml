@@ -1,7 +1,15 @@
+# To build book locally
+# Run "quarto preview" command in terminal
+# If shown error about not having quarto installed run this command in Command Prompt (navigate to the primer folder with cd)
+
+# Need to check if we can set junk to output-dir instead of docs like for bookdown
+
+# Below is the code for the quarto.yml (mostly taken by referencing example books)
 project:
   type: book
   output-dir: docs
-  
+
+# Most items below taken from index.rmd yaml header (needs to be here for quarto)
 book:
   title: "Preceptor's Primer for Bayesian Data Science"
   author: "David Kane"
@@ -34,8 +42,10 @@ book:
     - animation.qmd
     - set-up.qmd
     - references.qmd
-    
+# No special chapter's inside of others currently
+
+# Default quarto formatting for books/other documents below
 format:
-  html: 
+  html:
     theme: cosmo
     code-link: true
