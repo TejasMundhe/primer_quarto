@@ -48,9 +48,7 @@ Wisdom begins with considering the questions we desire to answer and the data se
 
 
 ```{r, echo = FALSE, message = FALSE}
-library(gt)
 library(tidyverse)
-library(patchwork)
 ```
 
 
@@ -94,7 +92,7 @@ Having created the Preceptor Table, we now look at the data we have:  the `train
 
 *Always explore your data.* Recall the discussion from Chapter \@ref(rubin-causal-model). @enos2014 randomly placed Spanish-speaking confederates on nine train platforms around Boston, Massachusetts. Exposure to Spanish-speakers -- the `treatment` -- influenced attitudes toward immigration. These reactions were measured through changes in answers to three survey questions. Load the necessary libraries and look at the data.
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning = FALSE}
 library(primer.data)
 library(rstanarm)
 library(skimr)

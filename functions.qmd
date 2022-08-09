@@ -47,7 +47,7 @@ replicate(10, sample(1:6, 1))
 
 An especially useful type of function is the family of `map_*` functions, from the **purrr** package, which is automatically loaded with `library(tidyverse)`. These functions apply some other function to every row in a tibble.
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
 ```
 

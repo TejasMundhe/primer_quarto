@@ -41,7 +41,6 @@ library(tidyverse)
 library(primer.data)
 library(rstanarm)
 library(broom.mixed)
-library(patchwork)
 ```
 
 

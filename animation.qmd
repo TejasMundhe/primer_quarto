@@ -19,7 +19,7 @@ Many thanks to Alboukadel Kassambara for allowing us to use [his tutorial](https
 
 Load required packages and set the default ggplot2 theme to `theme_bw()`:
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning = FALSE}
 library(tidyverse)
 library(gapminder)
 library(gganimate)

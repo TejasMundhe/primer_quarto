@@ -71,15 +71,14 @@ Small letters refer to a single outcome or result from a random variable. $c$ is
 
 The only package we need in this chapter is **tidyverse**.
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
-library(patchwork)
 ```
 
 To understand probability more fully, we first need to understand distributions.
 
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
  # We also load the **rayshader** and **rgl** packages. We use them to create
  # the 3-D plots below. You can read more about **rayshader**
  # [here](https://www.rayshader.com/) but we will not be explaining how to use
@@ -91,7 +90,6 @@ library(rgl)
 library(tidyverse)
 library(magick)
 library(primer.data)
-library(gt)
 ```
 
 

@@ -6,10 +6,9 @@ Everyone loves visualizations.
 
 <!-- Consider swapping out animation to use this instead: https://github.com/jschoeley/de0anim -->
 
-```{r, message = FALSE, echo = FALSE}
+```{r, message = FALSE, echo = FALSE, warning = FALSE}
 library(tidyverse)
 library(ggthemes)
-library(scales)
 library(gapminder)
 library(plotly)
 

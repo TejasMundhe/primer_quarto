@@ -1,9 +1,7 @@
 # Rubin Causal Model {#rubin-causal-model}
 
-```{r, include=FALSE}
+```{r, include=FALSE, warning = FALSE}
 library(tidyverse)
-library(gt)
-library(gtsummary)
 library(knitr)
 library(xtable)
 ```

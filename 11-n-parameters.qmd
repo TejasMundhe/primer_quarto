@@ -51,7 +51,7 @@ So, what would our ideal table look like? Assuming we are running for governor i
 Because there is no missing data in an ideal Preceptor Table, we would also know the outcomes under both treatment (receiving a reminder) and control (not receiving a reminder). Here is a sample row from our table:
 
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(gt)
 ```

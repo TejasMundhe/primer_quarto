@@ -26,7 +26,7 @@ Getting data into and out of R is a major part of any real world data science pr
 
 Start by loading the packages which we will need in this chapter.
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(primer.data)
 library(dbplyr)

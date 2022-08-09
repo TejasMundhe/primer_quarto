@@ -78,7 +78,6 @@ Here is a sample from our Preceptor Table:
 
 ```{r, include=FALSE}
 library(tidyverse)
-library(gt)
 ```
 
 
@@ -104,7 +103,7 @@ This table would extend all the way until person 4 billion-and-something. If we 
 
 In our quest to find suitable data, we find the `nhanes` dataset from the National Health and Nutrition Examination Survey conducted from 2009 to 2011 by the Centers for Disease Control and Prevention, which examines health and other pieces of data for children and adults in the United States. 
 
-```{r}
+```{r, warning = FALSE}
 library(tidyverse)
 library(primer.data)
 library(skimr)
