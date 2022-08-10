@@ -1,6 +1,6 @@
 # Visualization
 
-```{r hidden-libraries, message = FALSE, echo = FALSE, warning = FALSE}
+```{r hidden-libraries, message = FALSE, echo = FALSE, warning = FALSE, include = FALSE}
 library(tidyverse)
 library(ggthemes)
 library(gapminder)
