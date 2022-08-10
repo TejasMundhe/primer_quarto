@@ -297,7 +297,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><!-- MF: Population Table modified. Validity, representativness, and stability also modified. --><!-- Let's start using "data generating mechanism" everywhere. Maybe the DGM abbreviation is useful. The end of Justice is where we decide on  the "structure" (or "form") of the DGM. Right now, there are just two choices possible: gaussian or binary. (Note that there are many other possible structures. Take future courses to learn about them.) And, for now, we make our choice on the basis of the outcome variable. If it is continuous, we just linear, and if it is binary, we choose logistic.  Maybe show the formula each time? Or maybe this is where Courage starts, with the formula? --><!-- ?family --><!-- Justice gives to Courage, the data and the structure. --><!-- Courage gives to Temperance, the fitted model object. --><!-- Each new model starts with Justice, nodding toward the one true population table. Then discussion of representativeness and validity. --><!-- Need a table which shows all 4 (?) languages for describing a model together: English, math, code, output. ? --><!-- DK: Clean up these residuals plots to be similar across chapters! Also, we should ensure that the width of 10 units is the same in each plot. Or does that already happen? Want the intuition that, the more predictive the model, the smaller the remaining variation in the residuals. The below is from chapter 7. --><!-- DK: Posterior predictive checks! Connect to the data generating mechanism. --><!-- Come up with common ways in which a lack of representativeness causes problems. This is a list of things that we can check each time when we are interrograting a data science problem. Key issue is the correlation, if anything, between the "assignment mechanism" or "sampling mechanism" and other variables. Discuss sampling mechanism in all cases except att_end ~ treatment. For that, use "assignment mechanism." --><!-- If your sampling mechanism creates a correlation between your outcome variable and other stuff, then you may have a problem. --><!-- Think about the different categories of correlations (is this the right word?) which can arise. Example: the sampling mechanism of surveys, which old people don't like to fill out, means that old people are less likely to be in the sample. So what?  --><!-- Well, if age is your outcome, then you have one sort of problem. You want the distribution of the outcome variables in the sample to match the distribution in the population. Note the sloppiness here. Am I worried about the distribution of the data from the point in time from when the sample comes from? Or am I interested in the distribution of the outcome from the whole population? Answer: They are the same thing (I think). --><!-- Third case: What if the sampling mechanism goes a bias among the independent variables? --><!-- Even if the two outcome distributions are the same, then a second problem could be that the parameters of the model are different for different ranges of the independent variable.  (Grumpy people versus  non-grumpy people.) --><p>Models have parameters. In Chapter @ref(one-parameter) we created models with a single parameter <span class="math inline">\(p\)</span>, the proportion of red beads in an urn. In Chapter @ref(two-parameters), we used models with two parameters: <span class="math inline">\(\mu\)</span> (the average height in the population, generically known as a model “intercept”) and <span class="math inline">\(\sigma\)</span> (the variation in height in the population). Here — can you guess where this is going? — we will build models with three parameters: <span class="math inline">\(\sigma\)</span> (which serves the same role throughout the book) and two “coefficients.” In models which relate a continuous predictor to the outcome, those two parameters will be labeled <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. In models which estimate two averages, the parameters will be <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. All this notation is confusing, not least because different academic fields use inconsistent schemes. Follow the Cardinal Virtues and tackle your problem step by step.</p>
+</header><div class="cell">
+
+</div>
+
+<!-- MF: Population Table modified. Validity, representativness, and stability also modified. -->
+<!-- Let's start using "data generating mechanism" everywhere. Maybe the DGM abbreviation is useful. The end of Justice is where we decide on  the "structure" (or "form") of the DGM. Right now, there are just two choices possible: gaussian or binary. (Note that there are many other possible structures. Take future courses to learn about them.) And, for now, we make our choice on the basis of the outcome variable. If it is continuous, we just linear, and if it is binary, we choose logistic.  Maybe show the formula each time? Or maybe this is where Courage starts, with the formula? -->
+<!-- ?family -->
+<!-- Justice gives to Courage, the data and the structure. -->
+<!-- Courage gives to Temperance, the fitted model object. -->
+
+<!-- Each new model starts with Justice, nodding toward the one true population table. Then discussion of representativeness and validity. -->
+<!-- Need a table which shows all 4 (?) languages for describing a model together: English, math, code, output. ? -->
+<!-- DK: Clean up these residuals plots to be similar across chapters! Also, we should ensure that the width of 10 units is the same in each plot. Or does that already happen? Want the intuition that, the more predictive the model, the smaller the remaining variation in the residuals. The below is from chapter 7. -->
+<!-- DK: Posterior predictive checks! Connect to the data generating mechanism. -->
+<!-- Come up with common ways in which a lack of representativeness causes problems. This is a list of things that we can check each time when we are interrograting a data science problem. Key issue is the correlation, if anything, between the "assignment mechanism" or "sampling mechanism" and other variables. Discuss sampling mechanism in all cases except att_end ~ treatment. For that, use "assignment mechanism." -->
+<!-- If your sampling mechanism creates a correlation between your outcome variable and other stuff, then you may have a problem. -->
+<!-- Think about the different categories of correlations (is this the right word?) which can arise. Example: the sampling mechanism of surveys, which old people don't like to fill out, means that old people are less likely to be in the sample. So what?  -->
+<!-- Well, if age is your outcome, then you have one sort of problem. You want the distribution of the outcome variables in the sample to match the distribution in the population. Note the sloppiness here. Am I worried about the distribution of the data from the point in time from when the sample comes from? Or am I interested in the distribution of the outcome from the whole population? Answer: They are the same thing (I think). -->
+<!-- Third case: What if the sampling mechanism goes a bias among the independent variables? -->
+<!-- Even if the two outcome distributions are the same, then a second problem could be that the parameters of the model are different for different ranges of the independent variable.  (Grumpy people versus  non-grumpy people.) -->
+<p>Models have parameters. In Chapter @ref(one-parameter) we created models with a single parameter <span class="math inline">\(p\)</span>, the proportion of red beads in an urn. In Chapter @ref(two-parameters), we used models with two parameters: <span class="math inline">\(\mu\)</span> (the average height in the population, generically known as a model “intercept”) and <span class="math inline">\(\sigma\)</span> (the variation in height in the population). Here — can you guess where this is going? — we will build models with three parameters: <span class="math inline">\(\sigma\)</span> (which serves the same role throughout the book) and two “coefficients.” In models which relate a continuous predictor to the outcome, those two parameters will be labeled <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. In models which estimate two averages, the parameters will be <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. All this notation is confusing, not least because different academic fields use inconsistent schemes. Follow the Cardinal Virtues and tackle your problem step by step.</p>
 <section id="wisdom" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="wisdom">
 <span class="header-section-number">8.1</span> Wisdom</h2>
 <section id="preceptor-table" class="level3" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="preceptor-table">
@@ -310,19 +330,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'tibble' was built under R version 4.2.1</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'patchwork' was built under R version 4.2.1</code></pre>
-</div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="ubveqithsp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zygkxajnxg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ubveqithsp .gt_table {
+#zygkxajnxg .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -347,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_heading {
+#zygkxajnxg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -359,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_title {
+#zygkxajnxg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -371,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#ubveqithsp .gt_subtitle {
+#zygkxajnxg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -383,13 +400,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#ubveqithsp .gt_bottom_border {
+#zygkxajnxg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_col_headings {
+#zygkxajnxg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -404,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_col_heading {
+#zygkxajnxg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -424,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#ubveqithsp .gt_column_spanner_outer {
+#zygkxajnxg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -436,15 +453,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#ubveqithsp .gt_column_spanner_outer:first-child {
+#zygkxajnxg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ubveqithsp .gt_column_spanner_outer:last-child {
+#zygkxajnxg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ubveqithsp .gt_column_spanner {
+#zygkxajnxg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -456,7 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#ubveqithsp .gt_group_heading {
+#zygkxajnxg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -481,7 +498,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#ubveqithsp .gt_empty_group_heading {
+#zygkxajnxg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -496,15 +513,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#ubveqithsp .gt_from_md > :first-child {
+#zygkxajnxg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ubveqithsp .gt_from_md > :last-child {
+#zygkxajnxg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ubveqithsp .gt_row {
+#zygkxajnxg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -523,7 +540,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#ubveqithsp .gt_stub {
+#zygkxajnxg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -536,7 +553,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#ubveqithsp .gt_stub_row_group {
+#zygkxajnxg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -550,11 +567,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-#ubveqithsp .gt_row_group_first td {
+#zygkxajnxg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ubveqithsp .gt_summary_row {
+#zygkxajnxg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -564,16 +581,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#ubveqithsp .gt_first_summary_row {
+#zygkxajnxg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_first_summary_row.thick {
+#zygkxajnxg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ubveqithsp .gt_last_summary_row {
+#zygkxajnxg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -583,7 +600,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_grand_summary_row {
+#zygkxajnxg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -593,7 +610,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#ubveqithsp .gt_first_grand_summary_row {
+#zygkxajnxg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -603,11 +620,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_striped {
+#zygkxajnxg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ubveqithsp .gt_table_body {
+#zygkxajnxg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -616,7 +633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_footnotes {
+#zygkxajnxg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -630,7 +647,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_footnote {
+#zygkxajnxg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -639,7 +656,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#ubveqithsp .gt_sourcenotes {
+#zygkxajnxg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -653,7 +670,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#ubveqithsp .gt_sourcenote {
+#zygkxajnxg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -661,36 +678,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#ubveqithsp .gt_left {
+#zygkxajnxg .gt_left {
   text-align: left;
 }
 
-#ubveqithsp .gt_center {
+#zygkxajnxg .gt_center {
   text-align: center;
 }
 
-#ubveqithsp .gt_right {
+#zygkxajnxg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ubveqithsp .gt_font_normal {
+#zygkxajnxg .gt_font_normal {
   font-weight: normal;
 }
 
-#ubveqithsp .gt_font_bold {
+#zygkxajnxg .gt_font_bold {
   font-weight: bold;
 }
 
-#ubveqithsp .gt_font_italic {
+#zygkxajnxg .gt_font_italic {
   font-style: italic;
 }
 
-#ubveqithsp .gt_super {
+#zygkxajnxg .gt_super {
   font-size: 65%;
 }
 
-#ubveqithsp .gt_two_val_uncert {
+#zygkxajnxg .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -699,31 +716,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   margin-left: 0.1em;
 }
 
-#ubveqithsp .gt_footnote_marks {
+#zygkxajnxg .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#ubveqithsp .gt_asterisk {
+#zygkxajnxg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ubveqithsp .gt_slash_mark {
+#zygkxajnxg .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#ubveqithsp .gt_fraction_numerator {
+#zygkxajnxg .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#ubveqithsp .gt_fraction_denominator {
+#zygkxajnxg .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -894,16 +911,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </h3>
 <p><em>Always explore your data.</em> Recall the discussion from Chapter @ref(rubin-causal-model). <span class="citation" data-cites="enos2014">@enos2014</span> randomly placed Spanish-speaking confederates on nine train platforms around Boston, Massachusetts. Exposure to Spanish-speakers – the <code>treatment</code> – influenced attitudes toward immigration. These reactions were measured through changes in answers to three survey questions. Load the necessary libraries and look at the data.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">primer.data</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/rstanarm/">rstanarm</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'Rcpp' was built under R version 4.2.1</code></pre>
-</div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">primer.data</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/rstanarm/">rstanarm</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/skimr/">skimr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">trains</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">trains</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 115
 Columns: 14
@@ -926,27 +940,27 @@ $ ideology_end   &lt;int&gt; 3, 4, 2, 4, 2, 5, 5, 4, 3, 4, 3, 4, 4, 1, 2, 3, 3, 
 <p>The data include information about each respondent’s gender, political affiliations, age, income and so on. <code>treatment</code> indicates whether a subject was in the control or treatment group. The key outcomes are their attitudes toward immigration both before (<code>att_start</code>) and after (<code>att_end</code>) the experiment. Type <code><a href="https://rdrr.io/pkg/primer.data/man/trains.html">?trains</a></code> to read the help page for more information about each variable.</p>
 <p>Let’s restrict attention to a subset of the variables we need to answer our questions, as specified in the Preceptor Table. <code>age</code> is the age of the respondent; <code>party</code> is their political party affiliation; <code>liberal</code> is whether they are liberal or not; <code>income</code> is the income of the respondent; <code>treatment</code> specifies whether the respondent was given the treatment of being exposed to Spanish-speakers in the train station; and <code>att_end</code> tell us about the respondent’s attitude on immigration after the treatment, .</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">&lt;-</span> <span class="va">trains</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">&lt;-</span> <span class="va">trains</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">age</span>, <span class="va">att_end</span>, <span class="va">party</span>, <span class="va">income</span>, <span class="va">treatment</span>, <span class="va">liberal</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is always smart to look at a some random slices of the data:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 6
-    age att_end party      income treatment liberal
-  &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;fct&gt;     &lt;lgl&gt;  
-1    59      10 Democrat    62500 Treated   FALSE  
-2    47       8 Republican 300000 Control   FALSE  
-3    57       3 Democrat   105000 Control   TRUE   
-4    50       7 Democrat    87500 Treated   TRUE   
-5    54      12 Democrat   105000 Control   FALSE  </code></pre>
+    age att_end party    income treatment liberal
+  &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;fct&gt;     &lt;lgl&gt;  
+1    57       3 Democrat 105000 Control   TRUE   
+2    60      13 Democrat 135000 Control   TRUE   
+3    42       9 Democrat  87500 Control   FALSE  
+4    22      11 Democrat 135000 Control   FALSE  
+5    39       8 Democrat 135000 Treated   FALSE  </code></pre>
 </div>
 </div>
 <p><code>att_end</code> is a measure of person’s attitude toward immigration. A higher number means more conservative, i.e., a more exclusionary stance toward immigration into the United States.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 115
@@ -961,7 +975,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
 </div>
 <p>Pay attention to the variable types. Do they make sense? Perhaps. But there are certainly grounds for suspicion. Why is <code>att_end</code> a double rather than an integer? All the values in the data appear to be integers, so there is no benefit to having these variables be doubles. Why is <code>party</code> a character variable and <code>treatment</code> a factor variable? It could be that these are intentional choices made by the creator of the tibble, i.e., us. Or, these could be mistakes. Most likely, these choices are a mixture of sensible and arbitrary. Regardless, it is your responsibility to notice them. You can’t make a good model without looking closely at the data which you are using.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ch8</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://docs.ropensci.org/skimr/reference/skim.html">skim</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
@@ -1183,12 +1197,12 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="koryfhbbkg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="yehcxxypun" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#koryfhbbkg .gt_table {
+#yehcxxypun .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1213,7 +1227,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-left-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_heading {
+#yehcxxypun .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1225,7 +1239,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_title {
+#yehcxxypun .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1237,7 +1251,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-bottom-width: 0;
 }
 
-#koryfhbbkg .gt_subtitle {
+#yehcxxypun .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1249,13 +1263,13 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-top-width: 0;
 }
 
-#koryfhbbkg .gt_bottom_border {
+#yehcxxypun .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_col_headings {
+#yehcxxypun .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1270,7 +1284,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_col_heading {
+#yehcxxypun .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1290,7 +1304,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   overflow-x: hidden;
 }
 
-#koryfhbbkg .gt_column_spanner_outer {
+#yehcxxypun .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1302,15 +1316,15 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 4px;
 }
 
-#koryfhbbkg .gt_column_spanner_outer:first-child {
+#yehcxxypun .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#koryfhbbkg .gt_column_spanner_outer:last-child {
+#yehcxxypun .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#koryfhbbkg .gt_column_spanner {
+#yehcxxypun .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1322,7 +1336,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   width: 100%;
 }
 
-#koryfhbbkg .gt_group_heading {
+#yehcxxypun .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1347,7 +1361,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   vertical-align: middle;
 }
 
-#koryfhbbkg .gt_empty_group_heading {
+#yehcxxypun .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1362,15 +1376,15 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   vertical-align: middle;
 }
 
-#koryfhbbkg .gt_from_md > :first-child {
+#yehcxxypun .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#koryfhbbkg .gt_from_md > :last-child {
+#yehcxxypun .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#koryfhbbkg .gt_row {
+#yehcxxypun .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1389,7 +1403,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   overflow-x: hidden;
 }
 
-#koryfhbbkg .gt_stub {
+#yehcxxypun .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1402,7 +1416,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#koryfhbbkg .gt_stub_row_group {
+#yehcxxypun .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1416,11 +1430,11 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   vertical-align: top;
 }
 
-#koryfhbbkg .gt_row_group_first td {
+#yehcxxypun .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#koryfhbbkg .gt_summary_row {
+#yehcxxypun .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1430,16 +1444,16 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#koryfhbbkg .gt_first_summary_row {
+#yehcxxypun .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_first_summary_row.thick {
+#yehcxxypun .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#koryfhbbkg .gt_last_summary_row {
+#yehcxxypun .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1449,7 +1463,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-bottom-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_grand_summary_row {
+#yehcxxypun .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1459,7 +1473,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#koryfhbbkg .gt_first_grand_summary_row {
+#yehcxxypun .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1469,11 +1483,11 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-top-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_striped {
+#yehcxxypun .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#koryfhbbkg .gt_table_body {
+#yehcxxypun .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1482,7 +1496,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-bottom-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_footnotes {
+#yehcxxypun .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1496,7 +1510,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_footnote {
+#yehcxxypun .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1505,7 +1519,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#koryfhbbkg .gt_sourcenotes {
+#yehcxxypun .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1519,7 +1533,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#koryfhbbkg .gt_sourcenote {
+#yehcxxypun .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1527,36 +1541,36 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#koryfhbbkg .gt_left {
+#yehcxxypun .gt_left {
   text-align: left;
 }
 
-#koryfhbbkg .gt_center {
+#yehcxxypun .gt_center {
   text-align: center;
 }
 
-#koryfhbbkg .gt_right {
+#yehcxxypun .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#koryfhbbkg .gt_font_normal {
+#yehcxxypun .gt_font_normal {
   font-weight: normal;
 }
 
-#koryfhbbkg .gt_font_bold {
+#yehcxxypun .gt_font_bold {
   font-weight: bold;
 }
 
-#koryfhbbkg .gt_font_italic {
+#yehcxxypun .gt_font_italic {
   font-style: italic;
 }
 
-#koryfhbbkg .gt_super {
+#yehcxxypun .gt_super {
   font-size: 65%;
 }
 
-#koryfhbbkg .gt_two_val_uncert {
+#yehcxxypun .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -1565,31 +1579,31 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   margin-left: 0.1em;
 }
 
-#koryfhbbkg .gt_footnote_marks {
+#yehcxxypun .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#koryfhbbkg .gt_asterisk {
+#yehcxxypun .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#koryfhbbkg .gt_slash_mark {
+#yehcxxypun .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#koryfhbbkg .gt_fraction_numerator {
+#yehcxxypun .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#koryfhbbkg .gt_fraction_denominator {
+#yehcxxypun .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -2058,12 +2072,12 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="mggbmgubps" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hocdlrmyfm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#mggbmgubps .gt_table {
+#hocdlrmyfm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2088,7 +2102,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-left-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_heading {
+#hocdlrmyfm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2100,7 +2114,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_title {
+#hocdlrmyfm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2112,7 +2126,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-bottom-width: 0;
 }
 
-#mggbmgubps .gt_subtitle {
+#hocdlrmyfm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2124,13 +2138,13 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-top-width: 0;
 }
 
-#mggbmgubps .gt_bottom_border {
+#hocdlrmyfm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_col_headings {
+#hocdlrmyfm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2145,7 +2159,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_col_heading {
+#hocdlrmyfm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2165,7 +2179,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   overflow-x: hidden;
 }
 
-#mggbmgubps .gt_column_spanner_outer {
+#hocdlrmyfm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2177,15 +2191,15 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 4px;
 }
 
-#mggbmgubps .gt_column_spanner_outer:first-child {
+#hocdlrmyfm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mggbmgubps .gt_column_spanner_outer:last-child {
+#hocdlrmyfm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mggbmgubps .gt_column_spanner {
+#hocdlrmyfm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2197,7 +2211,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   width: 100%;
 }
 
-#mggbmgubps .gt_group_heading {
+#hocdlrmyfm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2222,7 +2236,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   vertical-align: middle;
 }
 
-#mggbmgubps .gt_empty_group_heading {
+#hocdlrmyfm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2237,15 +2251,15 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   vertical-align: middle;
 }
 
-#mggbmgubps .gt_from_md > :first-child {
+#hocdlrmyfm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mggbmgubps .gt_from_md > :last-child {
+#hocdlrmyfm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mggbmgubps .gt_row {
+#hocdlrmyfm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2264,7 +2278,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   overflow-x: hidden;
 }
 
-#mggbmgubps .gt_stub {
+#hocdlrmyfm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2277,7 +2291,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#mggbmgubps .gt_stub_row_group {
+#hocdlrmyfm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2291,11 +2305,11 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   vertical-align: top;
 }
 
-#mggbmgubps .gt_row_group_first td {
+#hocdlrmyfm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mggbmgubps .gt_summary_row {
+#hocdlrmyfm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2305,16 +2319,16 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#mggbmgubps .gt_first_summary_row {
+#hocdlrmyfm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_first_summary_row.thick {
+#hocdlrmyfm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mggbmgubps .gt_last_summary_row {
+#hocdlrmyfm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2324,7 +2338,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-bottom-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_grand_summary_row {
+#hocdlrmyfm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2334,7 +2348,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#mggbmgubps .gt_first_grand_summary_row {
+#hocdlrmyfm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2344,11 +2358,11 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-top-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_striped {
+#hocdlrmyfm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mggbmgubps .gt_table_body {
+#hocdlrmyfm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2357,7 +2371,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-bottom-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_footnotes {
+#hocdlrmyfm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2371,7 +2385,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_footnote {
+#hocdlrmyfm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2380,7 +2394,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#mggbmgubps .gt_sourcenotes {
+#hocdlrmyfm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2394,7 +2408,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   border-right-color: #D3D3D3;
 }
 
-#mggbmgubps .gt_sourcenote {
+#hocdlrmyfm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2402,36 +2416,36 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   padding-right: 5px;
 }
 
-#mggbmgubps .gt_left {
+#hocdlrmyfm .gt_left {
   text-align: left;
 }
 
-#mggbmgubps .gt_center {
+#hocdlrmyfm .gt_center {
   text-align: center;
 }
 
-#mggbmgubps .gt_right {
+#hocdlrmyfm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mggbmgubps .gt_font_normal {
+#hocdlrmyfm .gt_font_normal {
   font-weight: normal;
 }
 
-#mggbmgubps .gt_font_bold {
+#hocdlrmyfm .gt_font_bold {
   font-weight: bold;
 }
 
-#mggbmgubps .gt_font_italic {
+#hocdlrmyfm .gt_font_italic {
   font-style: italic;
 }
 
-#mggbmgubps .gt_super {
+#hocdlrmyfm .gt_super {
   font-size: 65%;
 }
 
-#mggbmgubps .gt_two_val_uncert {
+#hocdlrmyfm .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -2440,31 +2454,31 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
   margin-left: 0.1em;
 }
 
-#mggbmgubps .gt_footnote_marks {
+#hocdlrmyfm .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#mggbmgubps .gt_asterisk {
+#hocdlrmyfm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mggbmgubps .gt_slash_mark {
+#hocdlrmyfm .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#mggbmgubps .gt_fraction_numerator {
+#hocdlrmyfm .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#mggbmgubps .gt_fraction_denominator {
+#hocdlrmyfm .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -2582,7 +2596,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
 <p>Courage allows us to translate math to code.</p>
 <p>To get posterior distributions for our three parameters, we will again use <code><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm()</a></code>, just as we did in Chapter @ref(two-parameters).</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">age</span> <span class="op">~</span> <span class="va">party</span> <span class="op">-</span> <span class="fl">1</span>, </span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">age</span> <span class="op">~</span> <span class="va">party</span> <span class="op">-</span> <span class="fl">1</span>, </span>
 <span>                    data <span class="op">=</span> <span class="va">trains</span>, </span>
 <span>                    family <span class="op">=</span> <span class="va">gaussian</span>,</span>
 <span>                    seed <span class="op">=</span> <span class="fl">17</span>,</span>
@@ -2596,7 +2610,7 @@ $ liberal   &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, FALSE, FA
 </ul>
 <p>The resulting output:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>stan_glm
  family:       gaussian [identity]
@@ -2620,7 +2634,7 @@ sigma 12.3    0.8
 <p><code>partyDemocrat</code> corresponds to <span class="math inline">\(\beta_1\)</span>, the average age of Democrats in the population. <code>partyRepublican</code> corresponds to <span class="math inline">\(\beta_2\)</span>, the average age of Republicans in the population. Since we don’t really care about the posterior distribution for <span class="math inline">\(\sigma\)</span>, we won’t discuss it here. Graphically:</p>
 <!-- Lots to clean up about this plot! -->
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_1</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_1</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">sigma</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Democrat <span class="op">=</span> <span class="va">partyDemocrat</span>, Republican <span class="op">=</span> <span class="va">partyRepublican</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -2654,12 +2668,12 @@ sigma 12.3    0.8
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="qbzpgzpnma" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="olsrlcrefz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#qbzpgzpnma .gt_table {
+#olsrlcrefz .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2684,7 +2698,7 @@ sigma 12.3    0.8
   border-left-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_heading {
+#olsrlcrefz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2696,7 +2710,7 @@ sigma 12.3    0.8
   border-right-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_title {
+#olsrlcrefz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2708,7 +2722,7 @@ sigma 12.3    0.8
   border-bottom-width: 0;
 }
 
-#qbzpgzpnma .gt_subtitle {
+#olsrlcrefz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2720,13 +2734,13 @@ sigma 12.3    0.8
   border-top-width: 0;
 }
 
-#qbzpgzpnma .gt_bottom_border {
+#olsrlcrefz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_col_headings {
+#olsrlcrefz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2741,7 +2755,7 @@ sigma 12.3    0.8
   border-right-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_col_heading {
+#olsrlcrefz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2761,7 +2775,7 @@ sigma 12.3    0.8
   overflow-x: hidden;
 }
 
-#qbzpgzpnma .gt_column_spanner_outer {
+#olsrlcrefz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2773,15 +2787,15 @@ sigma 12.3    0.8
   padding-right: 4px;
 }
 
-#qbzpgzpnma .gt_column_spanner_outer:first-child {
+#olsrlcrefz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qbzpgzpnma .gt_column_spanner_outer:last-child {
+#olsrlcrefz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qbzpgzpnma .gt_column_spanner {
+#olsrlcrefz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2793,7 +2807,7 @@ sigma 12.3    0.8
   width: 100%;
 }
 
-#qbzpgzpnma .gt_group_heading {
+#olsrlcrefz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2818,7 +2832,7 @@ sigma 12.3    0.8
   vertical-align: middle;
 }
 
-#qbzpgzpnma .gt_empty_group_heading {
+#olsrlcrefz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2833,15 +2847,15 @@ sigma 12.3    0.8
   vertical-align: middle;
 }
 
-#qbzpgzpnma .gt_from_md > :first-child {
+#olsrlcrefz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qbzpgzpnma .gt_from_md > :last-child {
+#olsrlcrefz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qbzpgzpnma .gt_row {
+#olsrlcrefz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2860,7 +2874,7 @@ sigma 12.3    0.8
   overflow-x: hidden;
 }
 
-#qbzpgzpnma .gt_stub {
+#olsrlcrefz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2873,7 +2887,7 @@ sigma 12.3    0.8
   padding-right: 5px;
 }
 
-#qbzpgzpnma .gt_stub_row_group {
+#olsrlcrefz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2887,11 +2901,11 @@ sigma 12.3    0.8
   vertical-align: top;
 }
 
-#qbzpgzpnma .gt_row_group_first td {
+#olsrlcrefz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qbzpgzpnma .gt_summary_row {
+#olsrlcrefz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2901,16 +2915,16 @@ sigma 12.3    0.8
   padding-right: 5px;
 }
 
-#qbzpgzpnma .gt_first_summary_row {
+#olsrlcrefz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_first_summary_row.thick {
+#olsrlcrefz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qbzpgzpnma .gt_last_summary_row {
+#olsrlcrefz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2920,7 +2934,7 @@ sigma 12.3    0.8
   border-bottom-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_grand_summary_row {
+#olsrlcrefz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2930,7 +2944,7 @@ sigma 12.3    0.8
   padding-right: 5px;
 }
 
-#qbzpgzpnma .gt_first_grand_summary_row {
+#olsrlcrefz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2940,11 +2954,11 @@ sigma 12.3    0.8
   border-top-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_striped {
+#olsrlcrefz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qbzpgzpnma .gt_table_body {
+#olsrlcrefz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2953,7 +2967,7 @@ sigma 12.3    0.8
   border-bottom-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_footnotes {
+#olsrlcrefz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2967,7 +2981,7 @@ sigma 12.3    0.8
   border-right-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_footnote {
+#olsrlcrefz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -2976,7 +2990,7 @@ sigma 12.3    0.8
   padding-right: 5px;
 }
 
-#qbzpgzpnma .gt_sourcenotes {
+#olsrlcrefz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2990,7 +3004,7 @@ sigma 12.3    0.8
   border-right-color: #D3D3D3;
 }
 
-#qbzpgzpnma .gt_sourcenote {
+#olsrlcrefz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2998,36 +3012,36 @@ sigma 12.3    0.8
   padding-right: 5px;
 }
 
-#qbzpgzpnma .gt_left {
+#olsrlcrefz .gt_left {
   text-align: left;
 }
 
-#qbzpgzpnma .gt_center {
+#olsrlcrefz .gt_center {
   text-align: center;
 }
 
-#qbzpgzpnma .gt_right {
+#olsrlcrefz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qbzpgzpnma .gt_font_normal {
+#olsrlcrefz .gt_font_normal {
   font-weight: normal;
 }
 
-#qbzpgzpnma .gt_font_bold {
+#olsrlcrefz .gt_font_bold {
   font-weight: bold;
 }
 
-#qbzpgzpnma .gt_font_italic {
+#olsrlcrefz .gt_font_italic {
   font-style: italic;
 }
 
-#qbzpgzpnma .gt_super {
+#olsrlcrefz .gt_super {
   font-size: 65%;
 }
 
-#qbzpgzpnma .gt_two_val_uncert {
+#olsrlcrefz .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -3036,31 +3050,31 @@ sigma 12.3    0.8
   margin-left: 0.1em;
 }
 
-#qbzpgzpnma .gt_footnote_marks {
+#olsrlcrefz .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#qbzpgzpnma .gt_asterisk {
+#olsrlcrefz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qbzpgzpnma .gt_slash_mark {
+#olsrlcrefz .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#qbzpgzpnma .gt_fraction_numerator {
+#olsrlcrefz .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#qbzpgzpnma .gt_fraction_denominator {
+#olsrlcrefz .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -3135,7 +3149,7 @@ sigma 12.3    0.8
 <p>The fitted values are the same for all Republicans and for all Democrats, as the model produces one fitted value for each condition. This table shows how just a sample of 8 individuals captures a wide range of residuals, making it difficult to predict the age of a new individual. We can get a better picture of the unmodeled variation in our sample if we plot these three variables for all the individuals in our data.</p>
 <p>The following three histograms show the actual outcomes, fitted values, and residuals of all people in <code>trains</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">outcome</span> <span class="op">&lt;-</span> <span class="va">ch8</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">outcome</span> <span class="op">&lt;-</span> <span class="va">ch8</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age"</span>,</span>
@@ -3185,13 +3199,13 @@ sigma 12.3    0.8
 <p>So far we have only tried our model on people from our data set whose real age we already knew. This is helpful to understand the model, but our ultimate goal is to understand more about the real world, about people we don’t yet know much about. Temperance guides us to make meaningful predictions and to become aware of their known and unknown limitations.</p>
 <p>Start with a simple question, what are the chances that a random Democrat is over 50 years old? First, we create a tibble with the desired input for our model. In our case the tibble has a variable named “party” which contains a single observation with the value “Democrat”. This is a bit different than Chapter @ref(two-parameters).</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_obs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>party <span class="op">=</span> <span class="st">"Democrat"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_obs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>party <span class="op">=</span> <span class="st">"Democrat"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!-- Does this D_age work? If so, similar discussion should be used more broadly. Also discuss R_age. Even Person_age for a random person, an analysis which accounts for the mix of Rs and Ds in the sample/population. -->
 <p>Use <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code> to create draws from the posterior for this scenario. Note that we have a new posterior distribution under consideration here. The unknown parameter, call it <span class="math inline">\(D_{age}\)</span>, is the age of a Democrat. This could be the age of a randomly selected Democrat from the population or of the next Democrat we meet or of the next Democrat we interview on the train platform. The definition of “population” determines the appropriate interpretation. Yet, regardless, <span class="math inline">\(D_{age}\)</span> is an unknown parameter. But it is not one — like <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>, or <span class="math inline">\(\sigma\)</span> — for which we have already created a posterior probability distribution. That is why we need <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code>.</p>
 <p><code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code> takes two arguments: the model for which the simulations should be run, and a tibble indicating for which and how many parameters we want to run these simulations. In this case, the model is the one from Courage and the tibble is the one we just created.</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_1</span>, newdata <span class="op">=</span> <span class="va">new_obs</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_1</span>, newdata <span class="op">=</span> <span class="va">new_obs</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">as.numeric</span><span class="op">)</span></span>
 <span></span>
@@ -3200,22 +3214,22 @@ sigma 12.3    0.8
 <pre><code># A tibble: 10 × 1
      `1`
    &lt;dbl&gt;
- 1  61.7
- 2  25.3
- 3  28.6
- 4  32.2
- 5  21.9
- 6  50.1
- 7  38.2
- 8  46.7
- 9  24.2
-10  38.2</code></pre>
+ 1  59.0
+ 2  45.4
+ 3  29.6
+ 4  22.7
+ 5  43.8
+ 6  51.7
+ 7  35.4
+ 8  40.1
+ 9  46.8
+10  53.4</code></pre>
 </div>
 </div>
 <p>We might expect that we can use <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code> directly after the object returned <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code>. Sadly, for obscure technical reasons, that won’t quite work. So, we need the incantation <code>mutate_all(as.numeric)</code> to make sure that the resulting tibble is well-behaved. This command ensures that every column in the tibble is a simple numeric vector, which is what we want.</p>
 <p>The result are draws from the posterior distribution of the age of a Democrat. It is important to understand that this is not a concrete person from the <code>trains</code> dataset - the algorithm in <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code> simply uses the existing data from <code>trains</code> to estimate this posterior distribution.</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1`</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>  <span class="op">+</span></span>
@@ -3231,9 +3245,9 @@ sigma 12.3    0.8
 </div>
 <p>Once we have the posterior distribution, we can answer (almost) any reasonable question. In this case, the probability that the next Democrat will be over 50 is around 28%.</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pp</span><span class="op">$</span><span class="va">`1`</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pp</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pp</span><span class="op">$</span><span class="va">`1`</span> <span class="op">&gt;</span> <span class="fl">50</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">pp</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.279</code></pre>
+<pre><code>[1] 0.26575</code></pre>
 </div>
 </div>
 <p>Recall the second question:</p>
@@ -3242,7 +3256,7 @@ sigma 12.3    0.8
 </ul>
 <p>As before we start by creating a tibble with the desired input. Note that the name of the column (“party”) and the observations (“Democrat”, “Republican”) must always be <em>exactly</em> as they are in the original data set. This tibble as well as our model can then be used as arguments for <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>party <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Democrat"</span>, <span class="st">"Democrat"</span>, <span class="st">"Democrat"</span>, </span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>party <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Democrat"</span>, <span class="st">"Democrat"</span>, <span class="st">"Democrat"</span>, </span>
 <span>                        <span class="st">"Republican"</span>, <span class="st">"Republican"</span>,<span class="st">"Republican"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_1</span>, newdata <span class="op">=</span> <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -3252,16 +3266,16 @@ sigma 12.3    0.8
 <pre><code># A tibble: 4,000 × 6
      `1`   `2`   `3`   `4`   `5`   `6`
    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1  33.2  29.4  64.1  49.5  47.4  23.7
- 2  36.9  28.8  49.4  47.5  43.3  38.4
- 3  73.0  26.6  59.5  69.0  73.9  54.8
- 4  42.4  44.3  52.6  56.4  42.9  23.4
- 5  34.9  34.6  42.8  43.1  50.7  32.5
- 6  57.8  50.4  24.1  47.4  44.0  41.1
- 7  54.7  49.2  27.8  44.6  47.5  50.9
- 8  45.4  44.7  39.5  44.0  37.9  37.9
- 9  55.4  40.6  59.7  29.1  32.7  52.4
-10  34.6  41.8  49.7  48.1  46.6  49.1
+ 1  44.7  46.7  38.3  48.7  38.7 31.2 
+ 2  46.7  35.4  29.8  46.7  47.2 39.6 
+ 3  27.7  59.8  38.2  55.6  26.1  9.69
+ 4  29.5  36.1  35.3  17.6  30.1 57.3 
+ 5  36.6  70.4  38.7  58.2  54.9 39.8 
+ 6  57.5  43.6  34.2  32.1  28.3 59.0 
+ 7  58.9  52.1  39.0  40.9  41.6 40.9 
+ 8  47.2  53.2  31.2  38.8  33.4 29.2 
+ 9  54.7  34.5  37.6  42.7  68.7 53.1 
+10  43.5  35.3  42.8  42.0  46.5 70.5 
 # … with 3,990 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
@@ -3271,7 +3285,7 @@ sigma 12.3    0.8
 <!-- DK: I am unsure about this code. Would c() in place of c_across() work as well? -->
 <!-- DK: This works without mutate(all...), but it takes much more time than it should because the the pp object still has every column as a ppd object, even after as_tibble(). The rest of the code still works, but takes a 100x longer than it should. Maybe that is a better approach for handling the ppd problem? Just ignore it and take the time hit? -->
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_1</span>, newdata <span class="op">=</span> <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_1</span>, newdata <span class="op">=</span> <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">as.numeric</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  </span>
@@ -3298,23 +3312,23 @@ sigma 12.3    0.8
 # Rowwise: 
    dem_1 dem_2 dem_3 rep_1 rep_2 rep_3 dems_oldest reps_youngest age_diff
    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;
- 1  29.2  18.1  42.8 49.5   28.8  35.1        42.8         28.8     14.0 
- 2  43.1  46.6  44.2 22.7   42.0  52.6        46.6         22.7     23.9 
- 3  26.6  36.7  53.2  6.20  18.5  35.1        53.2          6.20    47.0 
- 4  61.7  49.4  36.9 32.1   43.7  31.6        61.7         31.6     30.2 
- 5  42.8  36.9  55.1 68.5   36.2  37.6        55.1         36.2     18.9 
- 6  39.2  38.8  61.4 45.3   12.7  45.4        61.4         12.7     48.6 
- 7  41.3  58.6  47.9 41.9   22.8  40.1        58.6         22.8     35.9 
- 8  50.8  34.1  36.7 57.3   35.6  50.0        50.8         35.6     15.1 
- 9  37.0  34.8  59.1  7.71  39.0  64.0        59.1          7.71    51.4 
-10  34.5  43.8  41.7 54.9   40.2  52.7        43.8         40.2      3.65
+ 1 29.6   46.6 31.5   37.7  48.1  46.9        46.6          37.7     8.87
+ 2  8.14  13.2 44.2   60.2  38.3  60.4        44.2          38.3     5.90
+ 3 54.4   23.2 28.6   39.3  53.4  30.9        54.4          30.9    23.4 
+ 4 74.5   44.3 55.4   58.0  37.7  26.0        74.5          26.0    48.4 
+ 5 51.4   34.8 34.9   65.6  47.3  35.8        51.4          35.8    15.7 
+ 6 36.4   26.6 19.4   41.8  23.2  39.8        36.4          23.2    13.2 
+ 7 49.4   48.2 62.0   30.8  51.5  29.9        62.0          29.9    32.0 
+ 8 44.9   45.3 52.6   37.7  44.9  43.8        52.6          37.7    14.8 
+ 9 48.6   32.2  4.76  37.6  39.1  40.6        48.6          37.6    11.0 
+10 42.6   54.4 32.6   52.3  40.6  34.7        54.4          34.7    19.7 
 # … with 3,990 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>The plotting code is similar to what we have seen before:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span>  </span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span>  </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_diff</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">+</span></span>
@@ -3336,7 +3350,7 @@ sigma 12.3    0.8
 <p>The interpretations of the parameters are different from the prior model. <span class="math inline">\(\beta_0\)</span> is now the average age of Republicans. This is the same interpretation as <span class="math inline">\(\beta_1\)</span> in the original set up. <span class="math inline">\(\beta_1\)</span> is now the difference between the the average age of Republicans and that of Democrats.</p>
 <p>To fit this model, we use the exact same code as before, except without the <code>-1</code> in the <code>formula</code> argument.</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">age</span> <span class="op">~</span> <span class="va">party</span>, </span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">age</span> <span class="op">~</span> <span class="va">party</span>, </span>
 <span>         data <span class="op">=</span> <span class="va">trains</span>, </span>
 <span>         seed <span class="op">=</span> <span class="fl">98</span>,</span>
 <span>         refresh <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3416,7 +3430,7 @@ sigma 12.3    0.8
 </div>
 <p>With Justice satisfied, we gather our Courage and fit the model. Note that, except for the change in variable names, the code is exactly the same as it was above, in our predictive model for age. <em>Predictive models and causal models use the same math and the same code.</em> The differences, and they are very important, lie in the interpretation of the results, not in their creation.</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">att_end</span> <span class="op">~</span> <span class="va">treatment</span> <span class="op">-</span> <span class="fl">1</span>, </span>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">att_end</span> <span class="op">~</span> <span class="va">treatment</span> <span class="op">-</span> <span class="fl">1</span>, </span>
 <span>                      data <span class="op">=</span> <span class="va">trains</span>, </span>
 <span>                      seed <span class="op">=</span> <span class="fl">45</span>,</span>
 <span>                      refresh <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
@@ -3450,7 +3464,7 @@ sigma 2.8    0.2
 <p>Let’s look at the full posteriors for both <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>.</p>
 <!-- DK: Change Parameter levels to something nice. -->
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_2</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_2</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">sigma</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">treatmentTreated</span><span class="op">:</span><span class="va">treatmentControl</span>,</span>
@@ -3497,7 +3511,7 @@ sigma 2.8    0.2
 </ul>
 <!-- DK: Below is also not clear. --><p>Chapter @ref(rubin-causal-model) defined the <em>average treatment effect</em>. One simple estimator of the average treatment effect is the difference between <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. After all, the definition of <span class="math inline">\(\beta_1\)</span> is the average attitude toward immigration, of the population, for anyone, under exposure to the treatment. So, <span class="math inline">\(\beta_1 - \beta_2\)</span> is the average treatment effect for the population, roughly 1.5. However, estimating the posterior probability distribution for this parameter is tricky, unless we make use of the posterior distributions of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. With that information, the problem is simple:</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_2</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_2</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>ate <span class="op">=</span> <span class="va">treatmentTreated</span> <span class="op">-</span> <span class="va">treatmentControl</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -3517,7 +3531,7 @@ sigma 2.8    0.2
 <!-- Establish that approximate 1.5 difference can be seen by the attitude posterior from courage -->
 <p>We can use <code><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html">posterior_epred()</a></code> to answer this question. Create a tibble and use it as we have done before:</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Treated"</span>, <span class="st">"Control"</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Treated"</span>, <span class="st">"Control"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html">posterior_epred</a></span><span class="op">(</span><span class="va">fit_2</span>, <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -3544,7 +3558,7 @@ sigma 2.8    0.2
 </div>
 <p>The posterior probability distribution created with <code><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html">posterior_epred()</a></code> is the same as the one produced by manipulating the parameters directly.</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pe</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pe</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ate</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">+</span></span>
@@ -3567,7 +3581,7 @@ sigma 2.8    0.2
 <p>Consider the result of <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code> for two people, one treated and one control. Take the difference.</p>
 <!-- DK: This goes a bit fast. Slow down. -->
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_2</span>, </span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict</a></span><span class="op">(</span><span class="va">fit_2</span>, </span>
 <span>                        newdata <span class="op">=</span> <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_all</a></span><span class="op">(</span><span class="va">as.numeric</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -3576,25 +3590,25 @@ sigma 2.8    0.2
 <span><span class="va">pp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,000 × 3
-     `1`   `2`       te
-   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
- 1  8.20  8.02  0.183  
- 2  7.06  2.59  4.48   
- 3  9.10  6.80  2.30   
- 4 15.6   6.30  9.31   
- 5  9.88  5.69  4.20   
- 6 11.1  11.2  -0.00845
- 7 11.3   5.14  6.15   
- 8  5.28  7.78 -2.49   
- 9 11.4   4.45  6.99   
-10  8.42 11.5  -3.03   
+     `1`   `2`     te
+   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1  5.63  8.45 -2.81 
+ 2 12.7  10.1   2.59 
+ 3 12.3   7.29  5.00 
+ 4 14.1   8.32  5.81 
+ 5 12.4   5.15  7.25 
+ 6 10.1   6.16  3.93 
+ 7 13.2   4.85  8.32 
+ 8 11.6  10.8   0.827
+ 9  7.69  7.18  0.513
+10 10.4   6.17  4.26 
 # … with 3,990 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>Create a graphic:</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">te</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>  <span class="op">+</span></span>
@@ -3611,10 +3625,10 @@ sigma 2.8    0.2
 <p>In this case, we are looking at the distribution of the treatment effect for a single individual. This is very different than the <em>average</em> treatment effect. In particular, it is much more variable. We are looking at one row in the Preceptor Table. For a single individual, <code>att_end</code> can be anywhere from 3 to 15, both under treatment and under control. The causal effect — the difference between the two potential outcomes can, in theory, be anywhere from -12 to +12. Such extreme values are rare, but not impossible.</p>
 <p>The question, however, was interested in the value at the 90th percentile.</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">pp</span><span class="op">$</span><span class="va">te</span>, prob <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">pp</span><span class="op">$</span><span class="va">te</span>, prob <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     90% 
-6.804222 </code></pre>
+6.674286 </code></pre>
 </div>
 </div>
 <p>We would not expect a treatment effect of this magnitude to be common, but, at the same time, effects this big and bigger will occur about 10% of the time.</p>
@@ -3665,7 +3679,7 @@ y_1 - y_2 = \beta_1 (age_1 - age_2)\]</span></p>
 </div>
 <p>The use of <code><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm()</a></code> is the same as usual.</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">income</span> <span class="op">~</span> <span class="va">age</span>, </span>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span><span class="va">income</span> <span class="op">~</span> <span class="va">age</span>, </span>
 <span>                  data <span class="op">=</span> <span class="va">trains</span>, </span>
 <span>                  seed <span class="op">=</span> <span class="fl">28</span>,</span>
 <span>                  refresh <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
@@ -3723,7 +3737,7 @@ sigma 74057.2  4892.1
 <p><em>What would you expect the income to be for a random 40 year old?</em></p>
 <p>Given that we are looking for an expected value, we use <code><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html">posterior_epred()</a></code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>age <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>age <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html">posterior_epred</a></span><span class="op">(</span><span class="va">fit_3</span>, newdata <span class="op">=</span> <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> </span>
@@ -3749,7 +3763,7 @@ sigma 74057.2  4892.1
 </div>
 <p>Plotting is the same as always.</p>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pe</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pe</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1`</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>  <span class="op">+</span></span>
@@ -3790,7 +3804,7 @@ sigma 74057.2  4892.1
 <span class="header-section-number">8.5.2</span> Courage</h3>
 <p>Fitting a logistic model is easy. We use all the same arguments as usual, but with <code>family = binomial</code> added.</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ch8</span>,</span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ch8</span>,</span>
 <span>                  formula <span class="op">=</span> <span class="va">liberal</span> <span class="op">~</span> <span class="va">income</span>,</span>
 <span>                  family <span class="op">=</span> <span class="va">binomial</span>,</span>
 <span>                  refresh <span class="op">=</span> <span class="fl">0</span>,</span>
@@ -3798,7 +3812,7 @@ sigma 74057.2  4892.1
 </div>
 <p>Having fit the model, we can look at a printed summary. Note the use of the <code>digits</code> argument to display more digits in the printout.</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">fit_4</span>, digits <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">fit_4</span>, digits <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>stan_glm
  family:       binomial [logit]
@@ -3822,7 +3836,7 @@ income      -0.000006  0.000003
 <p><em>Among all people who have an income $100,000, what proportion are liberal?</em></p>
 <p>Although our model is now logistic, all the steps in answering a question like this are the same as with a linear/guassian model.</p>
 <div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>income <span class="op">=</span> <span class="fl">100000</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>income <span class="op">=</span> <span class="fl">100000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://mc-stan.org/rstantools/reference/posterior_epred.html">posterior_epred</a></span><span class="op">(</span><span class="va">fit_4</span>, </span>
 <span>                      newdata <span class="op">=</span> <span class="va">newobs</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -3830,7 +3844,7 @@ income      -0.000006  0.000003
 </div>
 <p><code>pe</code> is a tibble with a single vector. That vector is 4,000 draws from the posterior distribution of proportion of people, among those who make $100,000, who are liberal. The population proportion is the same thing as the probability for any single individual.</p>
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pe</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pe</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">`1`</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>  <span class="op">+</span></span>
@@ -3849,7 +3863,7 @@ income      -0.000006  0.000003
 <p><em>Assume we have a group of eight people, two of whom make $100,000, two $200,000, two $300,000 and two $400,000. How many will be liberal?</em></p>
 <p>Because we are trying to predict the outcome for a small number of units, we use <code><a href="https://mc-stan.org/rstantools/reference/posterior_predict.html">posterior_predict()</a></code>. The more complex the questions we ask, the more care we need to devote to making the <code>newobs</code> tibble. We use the same <code><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/c_across.html">c_across()</a></code> tricks as earlier in the chapter.</p>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>income <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">100000</span>, <span class="fl">2</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newobs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>income <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">100000</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>                            <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">200000</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>                            <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">300000</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>                            <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">400000</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
@@ -3868,16 +3882,16 @@ income      -0.000006  0.000003
 # Rowwise: 
      `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8` total
    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     1     0     1     0     1     0     0     0     3
- 2     1     0     1     0     0     0     0     0     2
- 3     1     1     0     0     0     0     0     0     2
- 4     1     0     0     0     0     1     0     0     2
- 5     1     0     1     1     0     0     0     0     3
- 6     0     0     1     1     0     0     0     0     2
- 7     0     1     0     1     1     0     0     0     3
- 8     1     0     0     1     0     0     0     0     2
- 9     1     0     0     1     0     0     0     0     2
-10     0     1     0     1     0     0     0     0     2
+ 1     1     1     0     1     1     0     0     0     4
+ 2     0     0     1     1     0     0     0     0     2
+ 3     1     0     1     0     0     0     0     0     2
+ 4     1     1     0     0     0     0     0     0     2
+ 5     0     1     1     0     0     0     0     0     2
+ 6     1     0     1     0     0     0     0     0     2
+ 7     0     0     1     1     1     0     0     1     4
+ 8     0     1     0     1     1     0     0     0     3
+ 9     1     0     0     0     0     0     0     0     1
+10     1     0     1     0     0     0     0     0     2
 # … with 3,990 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
@@ -3889,7 +3903,7 @@ income      -0.000006  0.000003
 <p>We can simplify this draw by taking the sum, or doing anything else which might answer the question with which we are confronted. Posterior distributions are as flexible as individual numbers. We can, more or less, just use algebra to work with them.</p>
 <p>Graphically we have:</p>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pp</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">total</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                   bins <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>  <span class="op">+</span></span>
