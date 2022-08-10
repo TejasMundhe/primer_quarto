@@ -21,14 +21,13 @@
 project:
   type: book
   output-dir: docs
-  pre-render: book_start.R
 
-# Trying to use pre-render instead before_chapter script
-# Delete library loading from before as a result of this?
-# Warning messages on my end due to not updating R.
+# Tryed to use pre-render instead before_chapter script
+# Gave up on finding quarto eqivalent of before_chapter_script and after
+# pre/post-render work differently from bookdown before_chapter_script (not working)
 # For more info see: https://community.rstudio.com/t/cannot-get-quarto-pre-render-to-work/143566
 # Or my RS Community query: https://community.rstudio.com/t/quarto-book-start-equivalent/144196
-# Will add book_end as post-render?
+
 
 # Most items below taken from old bookdown primer's index.rmd yml header (needs to be here for quarto)
 # All general info under the book header

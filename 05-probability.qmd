@@ -1,5 +1,21 @@
 # Probability {#probability}
 
+```{r hidden-libraries, echo = FALSE, message = FALSE, warning = FALSE}
+ # We also load the **rayshader** and **rgl** packages. We use them to create
+ # the 3-D plots below. You can read more about **rayshader**
+ # [here](https://www.rayshader.com/) but we will not be explaining how to use
+ # it in this *Primer*.
+
+options(rgl.useNULL = TRUE)
+library(rayshader)
+library(rgl)
+library(tidyverse)
+library(magick)
+library(primer.data)
+library(gt)
+library(gtsummary)
+library(patchwork)
+```
 
 <!-- Yuhan: Once I try to renv:restore terra package didn't seems to work. -->
 
@@ -76,22 +92,6 @@ library(tidyverse)
 ```
 
 To understand probability more fully, we first need to understand distributions.
-
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
- # We also load the **rayshader** and **rgl** packages. We use them to create
- # the 3-D plots below. You can read more about **rayshader**
- # [here](https://www.rayshader.com/) but we will not be explaining how to use
- # it in this *Primer*.
-
-options(rgl.useNULL = TRUE)
-library(rayshader)
-library(rgl)
-library(tidyverse)
-library(magick)
-library(primer.data)
-```
-
 
 ## Distributions {#distributions}
 

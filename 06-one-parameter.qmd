@@ -1,5 +1,13 @@
 # One Parameter {#one-parameter}
 
+```{r hidden-libraries, message = FALSE, echo = FALSE, warning = FALSE}
+options(rgl.useNULL = TRUE)
+library(rgl)
+library(rayshader)
+library(gt)
+library(gtsummary)
+```
+
 <!-- RS: There was a random paragraph about the Central Limit therom in the polling section. I moved it to "changing shovel sizes". Guessing Preceptor will delete, but I didn't write it so no harm to me.  -->
 
 <!-- RS: Technically, standard error should not use sigma in it's formula, as it specifically refers to a point statistic and not a population. Someone may want to change all the sigmas to s.  -->
@@ -607,13 +615,6 @@ Now that we have this framework, there's no need to limit ourselves to the sizes
 <!-- RS: For me, the tutorial doesn't knit unless this is included. For whoever is reading this, if the tutorial knits for you, then please delete the code chunk below! -->
 
 <!-- RS: If it's still a problem, it has something to do with the code chunk cache = TRUE option being confused with the raysharer/rgl cache = TRUE.  -->
-
-```{r, echo = FALSE, warning = FALSE}
-options(rgl.useNULL = TRUE)
-library(rgl)
-library(rayshader)
-library(gt)
-```
 
 
 ```{r, cache = TRUE}

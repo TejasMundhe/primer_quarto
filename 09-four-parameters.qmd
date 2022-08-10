@@ -1,5 +1,9 @@
 # Four Parameters {#four-parameters}
 
+```{r hidden-libraries, message = FALSE, echo = FALSE, warning = FALSE}
+library(patchwork)
+```
+
 
 <!-- Change Justice section to discuss the math of three possible models you are considering. Predictive or am I doing causal? What is the treatment effect is my question? So, must be causal. Key point: Just because you are using treatment, does not mean that you care it is causal. You may not care. You might only want prediction. So, everything really starts with your question. If you are not asking a causal question, then you don't care if a lefthand side variable has a causal interpretation. You just care if it helps you make better predictions. -->
 

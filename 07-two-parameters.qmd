@@ -1,5 +1,11 @@
 # Two Parameters {#two-parameters}
 
+```{r hidden-libraries, message = FALSE, echo = FALSE, warning = FALSE}
+library(gt)
+library(gtsummary)
+```
+
+
 <!-- Read Gelman on problems with testing. -->
 
 <!-- Read chapter 8 and 11. -->
