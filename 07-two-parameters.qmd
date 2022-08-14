@@ -1018,3 +1018,7 @@ Let's practice this process another dozen or so times.
 
 <!-- Although a bootstrap can create a posterior distribution, as above, there are much simpler ways to do so. The most common involves the function `stan_glm()` from the **rstanarm** library. Halfway through the book, we are now ready for our first full scale data science project. Let us be guided by the cardinal virtues. -->
 
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```
+

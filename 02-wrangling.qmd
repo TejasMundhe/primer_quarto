@@ -1389,3 +1389,6 @@ The second way that the word distribution is used is to refer to a vector of val
 
 Whether "distribution" means the imaginary object or a vector of numbers drawn from that imaginary object depends on context.
 
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```

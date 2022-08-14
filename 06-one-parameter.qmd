@@ -6,6 +6,7 @@ library(rgl)
 library(rayshader)
 library(gt)
 library(gtsummary)
+library(patchwork)
 ```
 
 <!-- RS: There was a random paragraph about the Central Limit therom in the polling section. I moved it to "changing shovel sizes". Guessing Preceptor will delete, but I didn't write it so no harm to me.  -->
@@ -1500,5 +1501,9 @@ As we continue our journey, recall the case of Primrose Everdeen and what she re
 
 ```{r, echo = FALSE}
 knitr::include_graphics("06-one-parameter/images/posterior_effie.png")
+```
+
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
 ```
 

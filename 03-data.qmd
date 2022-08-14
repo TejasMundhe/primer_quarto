@@ -1734,3 +1734,6 @@ In the end, this chapter is about getting data from other people and using it in
 knitr::include_graphics("03-data/images/suckville.png")
 ```
 
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```

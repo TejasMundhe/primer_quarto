@@ -128,6 +128,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Preceptor’s Primer for Bayesian Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/PPBDS/primer/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+<li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Preceptor-s-Primer-for-Bayesian-Data-Science.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Preceptor-s-Primer-for-Bayesian-Data-Science.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -285,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#case-study-polls" id="toc-case-study-polls" class="nav-link" data-scroll-target="#case-study-polls"> <span class="header-section-number">6.6.5</span> Case study: Polls</a></li>
   </ul>
 </li>
-  </ul></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/PPBDS/primer/edit/main/06-one-parameter.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -422,18 +440,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 33 × 4
-   group           red_beads prop_red group_ID
-   &lt;chr&gt;               &lt;dbl&gt;    &lt;dbl&gt;    &lt;int&gt;
- 1 Ishan, Cass            15     0.3         1
- 2 Ace, Chris             18     0.36        2
- 3 Mia, James             15     0.3         3
- 4 Mark, Jane             21     0.42        4
- 5 Paddy, Matt            16     0.32        5
- 6 Vignesh, Eliot         16     0.32        6
- 7 Damani, Melissa        15     0.3         7
- 8 Frank, Clara           21     0.42        8
- 9 Caroline, Edna         15     0.3         9
-10 Mak, Sophie            17     0.34       10
+   group          red_beads prop_red group_ID
+   &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;int&gt;
+ 1 Claire, Cloud         16     0.32        1
+ 2 Maddie, Brent         19     0.38        2
+ 3 Sophie, Brian         21     0.42        3
+ 4 Morgan, Emily         21     0.42        4
+ 5 Dania, Derek          21     0.42        5
+ 6 Mark, Ramses          21     0.42        6
+ 7 Mal, Francis          17     0.34        7
+ 8 Vignesh, Eliot        16     0.32        8
+ 9 Siobhan, Jane         11     0.22        9
+10 Esther, Henry         17     0.34       10
 # … with 23 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
@@ -3813,6 +3831,11 @@ $ st_dev_p_hat &lt;dbl&gt; 0.48436516, 0.34093399, 0.27629253, 0.24069833, 0.214
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="06-one-parameter/images/posterior_effie.png" class="img-fluid" width="541"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>tweaking rgl</code></pre>
 </div>
 </div>
 

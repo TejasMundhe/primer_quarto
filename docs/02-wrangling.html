@@ -75,6 +75,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -569,16 +588,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 1
-  fruit      
-  &lt;chr&gt;      
-1 bell pepper
-2 jujube     
-3 breadfruit 
-4 mango      
-5 cherry     
-6 pineapple  
-7 kiwi fruit 
-8 kumquat    </code></pre>
+  fruit     
+  &lt;chr&gt;     
+1 jackfruit 
+2 apple     
+3 strawberry
+4 date      
+5 plum      
+6 banana    
+7 elderberry
+8 breadfruit</code></pre>
 </div>
 </div>
 <!-- AM: Demonstrate a use of the `prop` argument? Or just delete it entirely? -->
@@ -1036,11 +1055,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2022-08-09"</code></pre>
+<pre><code>[1] "2022-08-13"</code></pre>
 </div>
 <div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2022-08-09 17:42:21 EDT"</code></pre>
+<pre><code>[1] "2022-08-13 17:30:12 EDT"</code></pre>
 </div>
 </div>
 <p>Otherwise, there are three ways you’re likely to create a date/time:</p>
@@ -1145,11 +1164,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode" id="cb118"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_datetime</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">today</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2022-08-09 UTC"</code></pre>
+<pre><code>[1] "2022-08-13 UTC"</code></pre>
 </div>
 <div class="sourceCode" id="cb120"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/now.html">now</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2022-08-09"</code></pre>
+<pre><code>[1] "2022-08-13"</code></pre>
 </div>
 </div>
 <p>Sometimes you’ll get date/times as numeric offsets from the “Unix Epoch”, 1970-01-01. If the offset is in seconds, use <code><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_datetime()</a></code>; if it’s in days, use <code><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date()</a></code>.</p>
@@ -1632,7 +1651,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section><section id="converting-to-tidy-data" class="level3" data-number="2.7.2"><h3 data-number="2.7.2" class="anchored" data-anchor-id="converting-to-tidy-data">
 <span class="header-section-number">2.7.2</span> Converting to “tidy” data</h3>
-<p>In this book so far, you’ve only seen data frames that were already in “tidy” format. Furthermore, for the rest of this book, you’ll mostly only see data frames that are already tidy as well. This is not always the case, however, with all datasets in the world. If your original data frame is in wide (non-“tidy”) format and you would like to use the <strong>ggplot2</strong> or <strong>dplyr</strong> packages, you will first have to convert it to “tidy” format. To do so, we recommend using the <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> function in the <strong>tidyr</strong> package <span class="citation" data-cites="R-tidyr">[@R-tidyr]</span>.</p>
+<p>In this book so far, you’ve only seen data frames that were already in “tidy” format. Furthermore, for the rest of this book, you’ll mostly only see data frames that are already tidy as well. This is not always the case, however, with all datasets in the world. If your original data frame is in wide (non-“tidy”) format and you would like to use the <strong>ggplot2</strong> or <strong>dplyr</strong> packages, you will first have to convert it to “tidy” format. To do so, we recommend using the <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> function in the <strong>tidyr</strong> package <span class="citation" data-cites="R-tidyr">(<a href="references.html#ref-R-tidyr" role="doc-biblioref">Wickham and Girlich 2022</a>)</span>.</p>
 <p>Going back to our <code>drinks_smaller</code> data frame from earlier:</p>
 <div class="cell">
 <div class="sourceCode" id="cb187"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">drinks_smaller</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2383,8 +2402,16 @@ Call `lifecycle::last_lifecycle_warnings()` to see where this warning was genera
 <p>The key data science concept from this chapter is, again, the idea of a “distribution.” The word distribution is used in two very different ways. First, a distribution is an invisible object that you can never see or touch. It is the imaginary urn from which you can take draws. Only in very special cases will you ever be able to “know” what the distribution is, mainly in cases where there is a physical process, like a roulette wheel, which you can inspect or in the case of an assumed mathematical formula. In almost all real world data science problems, the “distribution” is a mental creation whose reality you can never confirm.</p>
 <p>The second way that the word distribution is used is to refer to a vector of values, a variable in an R tibble. The 115 ages in <code>trains</code> are a distribution as are 1,000 draws from <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>.</p>
 <p>Whether “distribution” means the imaginary object or a vector of numbers drawn from that imaginary object depends on context.</p>
+<div class="cell">
+
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-R-tidyr" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, and Maximilian Girlich. 2022. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

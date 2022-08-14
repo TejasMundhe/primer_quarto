@@ -1125,6 +1125,7 @@ Random assignment of treatments to units is the best way to estimate causal effe
 Be wary of claims made in situations without random assignment: [Here be dragons](https://en.wikipedia.org/wiki/Here_be_dragons)!
 
 
-
-
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```
 

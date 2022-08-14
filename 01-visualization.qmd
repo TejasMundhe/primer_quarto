@@ -1379,3 +1379,7 @@ hundred_days_p
 You now know enough to make plots like this by yourself.
 
 A beautiful plot is just a collection of steps, each simple enough on its own. We have taught you (some of) these steps. Time to start walking on your own.
+
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```

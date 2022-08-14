@@ -1247,4 +1247,6 @@ Once we have draws from a posterior distribution for our outcome variable --- wh
 
 * *Don't confuse the estimated posterior (which is what you have) with the true posterior (which is what you want). Be humble and cautious in your use of the posterior.*
 
-
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```

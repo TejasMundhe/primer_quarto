@@ -704,3 +704,8 @@ We know, from experience, that our posteriors are often too narrow. They assume 
 * The population we would like to make inferences about *is not the population for which we have data*. It is a matter of wisdom whether the data we do have maps closely enough to the population we are studying.
 
 * When dealing with models with many parameters, double check that you know how to find the true slope and intercepts --- often, this requires adding numerous values to the coefficient you are studying. 
+
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```
+

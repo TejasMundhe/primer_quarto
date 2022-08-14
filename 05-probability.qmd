@@ -2008,4 +2008,6 @@ knitr::include_app("https://www.youtube.com/embed/6C7yRBfh2ok")
 
 <!-- DeGroot (p. 97): "Consider an experiment for which the sample space us denoted by S. A real-valued function that is defined on the space S is called a random variable. In other words, in a particular experiment a random variable X would be some function that assigns a real number X(s) to each possible outcome s \subset S. -->
 
-
+```{r echo = FALSE, cache=FALSE, warning = FALSE}
+knitr::write_bib(.packages(), "packages.bib")
+```
