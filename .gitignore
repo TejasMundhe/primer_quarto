@@ -31,15 +31,15 @@ book_temp*
 junk/*
 
 # Only the book-builder needs to deal with this file. It gets replaced
-# everytime you knit a chapter, so it should just be ignored.
+# everytime you knit a chapter, so it should just be ignored. May need to remove this to fix references page.
 
-bib/packages.bib
+packages.bib
 
 # No matter what happens above, everything in docs/ must be checked in
 
 !docs/*
 
-# Don't neet to check below directory's into version control. (Updated for quarto)
+# Don't need to check below directory's into version control. (Updated for quarto)
 /.quarto/
 /_book/
 
