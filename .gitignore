@@ -13,12 +13,13 @@
 # Never check in caches. This file name is set in book_start.R
 
 cache-directory
+*_cache/*
 
 # This is where RStudio gathers part of the book. Files are transfered to
 # output_dir once the build is complete.
 
 _bookdown_files
-
+*_files/*
 
 # Because _bookdown.yml has book_filename: "book_temp", there is a lot of
 # garbage with this prefix, both individual files and directories. None of
